@@ -5,7 +5,8 @@ import './index.scss';
 import Search from '../SearchForm';
 
 export const Header = () => {
-  const Logo = toAbsoluteUrl('/Assets/Vibe.png')
+  const Logo = toAbsoluteUrl('/Assets/Vibe.png');
+  const Profile = toAbsoluteUrl('./Assets/profile-user.png');
   return (
     <nav className="navbar">
       <div className="navbar-left">
@@ -14,8 +15,10 @@ export const Header = () => {
       <div>
         < Search />
       </div>
-      <div>
-       <Link to="/home">Profile</Link>
+      <div className='profile'>
+       <Link to="/profile">
+          <img src= {Profile} alt='Profile' />
+       </Link>
       </div>
     </nav>
   )

@@ -3,6 +3,7 @@
     justify-content: space-between;
     padding: 0 150px;
     align-items: center;
+    text-align: center;
 
     .navbar-left {
         max-width: 100%;
@@ -12,4 +13,12 @@
             width: 150px;
         }
     }
+
+    .profile {
+        img {
+            height: 40px;
+            width: 40px;
+        }
+    }
+
 }
