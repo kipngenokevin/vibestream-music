@@ -1,7 +1,7 @@
 import React from 'react';
 import { toAbsoluteUrl } from '../../_helpers/utils'
 import { Link } from 'react-router-dom';
-import './index.scss';
+import './style.scss';
 import Search from '../SearchForm';
 
 export const Header = () => {
