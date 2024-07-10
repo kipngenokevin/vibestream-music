@@ -5,6 +5,7 @@ import Albums from './Pages/Albums';
 import Songs from './Pages/Songs';
 import Artists from './Pages/Artists';
 import Podcasts from './Pages/Podcasts';
+import HomePage from './Components/HomePage';
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/songs" element={<Songs />} />
         <Route path="/artists" element={<Artists />} />
         <Route path="/podcasts" element={<Podcasts />} />
+        <Route path="/" exact component={HomePage} />
       </Routes>
   );
 }

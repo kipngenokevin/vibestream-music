@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './style.scss';
+import Header from '../../Components/Header';
+import Sidebar from '../../Components/Sidebar';
 
 const Artists = () => {
   const [artists, setArtists] = useState([]);
@@ -18,7 +20,8 @@ const Artists = () => {
 
   return (
     <div className="artists">
-      <h2>Artists</h2>
+       <Header />
+       <Sidebar />
       <ul>
         {artists.map(artist => (
           <li key={artist.id}>{artist.name}</li>

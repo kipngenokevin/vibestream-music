@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './style.scss';
+import Header from '../../Components/Header';
+import Sidebar from '../../Components/Sidebar';
 
 const Podcasts = () => {
   const [podcasts, setPodcasts] = useState([]);
@@ -18,7 +20,8 @@ const Podcasts = () => {
 
   return (
     <div className="podcasts">
-      <h2>Podcasts</h2>
+       <Header />
+       <Sidebar />
       <ul>
         {podcasts.map(podcast => (
           <li key={podcast.id}>{podcast.title}</li>

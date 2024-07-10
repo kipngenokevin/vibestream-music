@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './style.scss';
 import Search from '../SearchForm';
 
-export const Header = () => {
+const Header = () => {
   const Logo = toAbsoluteUrl('/Assets/Vibe.png');
   const Profile = toAbsoluteUrl('./Assets/profile-user.png');
   return (
@@ -22,4 +22,6 @@ export const Header = () => {
       </div>
     </nav>
   )
-}
+};
+
+export default Header;

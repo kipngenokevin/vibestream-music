@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './style.scss';
+import Header from '../../Components/Header';
+import Sidebar from '../../Components/Sidebar';
 
 const Albums = () => {
   const [albums, setAlbums] = useState([]);
@@ -17,7 +19,8 @@ const Albums = () => {
 
   return (
     <div>
-      <h1>Albums</h1>
+      <Header />
+      <Sidebar />
       <ul>
         {albums.map(album => (
           <li key={album.id}>{album.name}</li>
