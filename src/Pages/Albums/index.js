@@ -22,9 +22,17 @@ const Albums = () => {
       <Header />
       <Sidebar />
       <ul>
-        {albums.map(album => (
-          <li key={album.id}>{album.name}</li>
+      <div className="album-page">
+      <h2>Albums</h2>
+      <div className="album-list">
+        {albums.map((album) => (
+          <div key={album.id} className="album-item">
+            <img src={album.coverImage} alt={album.title} />
+            <p>{album.title}</p>
+          </div>
         ))}
+      </div>
+    </div>
       </ul>
     </div>
   );

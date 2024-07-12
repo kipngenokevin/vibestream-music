@@ -5,8 +5,8 @@ body {
 }
 
 .content {
-  margin-left: 300px; /* This should match the width of your sidebar */
-  padding-top: 60px; /* This should match the height of your header */
+  margin-left: 300px; 
+  padding-top: 60px; 
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -20,6 +20,7 @@ body {
       background: #f0f0f0;
       padding: 20px;
       border-radius: 8px;
+      height: 30vh;
 
       .section-title {
         margin-bottom: 10px;

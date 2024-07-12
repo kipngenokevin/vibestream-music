@@ -7,9 +7,9 @@ const HomePage = () => {
   const [songs, setSongs] = useState([]);
   const [albums, setAlbums] = useState([]);
   const [podcasts, setPodcasts] = useState([]);
+  const [artists, setArtists] = useState([]);
 
   useEffect(() => {
-    // Replace these URLs with your actual API endpoints
     axios.get('https://api.example.com/popular-songs')
       .then(response => setSongs(response.data))
       .catch(error => console.error('Error fetching songs:', error));
@@ -21,6 +21,10 @@ const HomePage = () => {
     axios.get('https://api.example.com/popular-podcasts')
       .then(response => setPodcasts(response.data))
       .catch(error => console.error('Error fetching podcasts:', error));
+
+    axios.get('https://api.example.com/popular-artists')
+      .then(response => setArtists(response.data))
+      .catch(error => console.error('Error fetching podcasts:', error));  
   }, []);
 
   return (
@@ -56,6 +60,18 @@ const HomePage = () => {
             <div className="section-item" key={podcast.id} onClick={() => alert(`Clicked on ${podcast.title}`)}>
               <img src={podcast.coverImage} alt={podcast.title} />
               <p>{podcast.title}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="section">
+        <h2 className="section-title">Best of artists</h2>
+        <div className="section-content">
+          {artists.map(artist => (
+            <div className="section-item" key={artist.id} onClick={() => alert(`Clicked on ${artist.title}`)}>
+              <img src={artist.coverImage} alt={artist.title} />
+              <p>{artist.title}</p>
             </div>
           ))}
         </div>
