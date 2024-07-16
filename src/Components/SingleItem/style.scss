@@ -1,0 +1,30 @@
+.single-item {
+    .hero-section {
+      height: 60vh;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+  
+      .overlay {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 8px;
+  
+        .item-title {
+          font-size: 3em;
+          margin: 0;
+        }
+  
+        .item-description {
+          font-size: 1.2em;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  
