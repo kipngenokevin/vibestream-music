@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free music all day long!">
+    <meta name="keywords" content="Music, Songs, Playlists, Songs">
+    <title>VibeStream Music</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- As a heading -->
+    <div class="container d-flex justify-content-center">
+        <a class="navbar-brand" href="#">
+        <img src="images/logo.png" alt="Vibestream Music" width="100">
+        </a>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div id="song-container">
+                    <!-- Song details will be populated here -->
+                </div>
+                <!-- LANDING SECTION -->
+                <div class="col-sm-12 d-flex justify-content-center">
+                    <div class="music-player">
+                        <img class="img-fluid play-song-img rounded" src="images/img1.jpg" alt="" width="300px" id="song-image">
+                        <div class="music-info text-center">
+                            <p id="song-title">Song title</p>
+                            <small id="artist-name">Artist name</small>
+                        </div>
+                        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                        <div class="music-controls d-flex justify-content-between">
+                            <span class="material-symbols-outlined" id="skip-previous">
+                                skip_previous
+                            </span>
+                            <span class="material-symbols-outlined" id="play-button">
+                                play_arrow
+                            </span>
+                            <span class="material-symbols-outlined" id="skip-next">
+                                skip_next
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="container bg-body-tertiary position-absolute bottom-0 padnav">
+        <div class="row">
+            <div class="col-sm-12 d-flex justify-content-between ">
+                <button class="btn material-symbols-outlined" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Songs">
+                    music_note
+                </button>
+                <button class="btn material-symbols-outlined" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Albums">
+                    album
+                </button>
+                <button class="btn material-symbols-outlined" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Artists">
+                    artist
+                </button>
+                <a href="index.html" class="btn  material-symbols-outlined active" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Home">
+                    home
+                </a>
+                <button class="btn material-symbols-outlined" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Podcasts">
+                    headphones
+                </button>
+                <button class="btn material-symbols-outlined" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Playlists">
+                    favorite
+                </button>
+                <button class="btn material-symbols-outlined" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Profile">
+                    account_circle
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SCRIPTS -->
+    <script type="module" src="js/playSong/playSong.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+  </body>
+</html>
