@@ -1,7 +1,7 @@
 // GLOBAL ENDPOINT URLS
 const songsEndpointURL = "http://localhost:8080/vibestream/songs/";
-const albumsEndpointURL = "http://localhost:8080/vibestream/albumss/";
-const playlistsEndpointURL = "http://localhost:8080/vibestream/playlists/";
+export const albumsEndpointURL = "http://localhost:8080/vibestream/albums/";
+export const playlistsEndpointURL = "http://localhost:8080/vibestream/playlists/";
 const artistsEndpointURL = "http://localhost:8080/vibestream/artists/";
 const podcastsEndpointURL = "http://localhost:8080/vibestream/podcasts/";
 

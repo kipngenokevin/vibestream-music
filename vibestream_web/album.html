@@ -24,33 +24,42 @@
     <main>
         <div class="container">
             <div class="row">
-                <div id="song-container">
-                    <!-- Song details will be populated here -->
-                </div>
                 <!-- LANDING SECTION -->
-                <div class="col-sm-12 d-flex justify-content-center">
-                    <div class="music-player">
-                        <img class="img-fluid play-song-img rounded" src="images/img1.jpg" alt="" width="300px" id="song-image">
-                        <div class="music-info text-center">
-                            <p id="song-title">Song title</p>
-                            <small id="artist-name">Artist name</small>
-                        </div>
-                        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
-                        </div>
-                        <div class="music-controls d-flex justify-content-between">
-                            <span class="material-symbols-outlined" id="skip-previous">
-                                skip_previous
-                            </span>
-                            <span class="material-symbols-outlined" id="play-button">
-                                play_arrow
-                            </span>
-                            <span class="material-symbols-outlined" id="skip-next">
-                                skip_next
-                            </span>
+                <div class="col-sm-12">
+                    <div class="card text-bg-dark">
+                        <img src="images/landing-section-image.jpg" class="card-img landing-img" alt="...">
+                        <div class="card-img-overlay">
+                          <h1 class="card-title">Your favorite albums</h1>
+                          <p class="card-text">Your favorite artists, bands and podcasts in one location. </p>
+                          <p class="card-text"><small><b>One, Two, PLAY!</b></small></p>
                         </div>
                     </div>
                 </div>
+
+                <!-- EDITOR'S PICK -->
+                <h3>Editor's Pick</h3>
+                <div id="albums-container" class="col-sm-12 d-flex justify-content-evenly flex-wrap">
+                    <!-- ALBUMS -->
+                </div>
+
+                <!-- Modal HTML -->
+                <div class="modal fade" id="albumModal" tabindex="-1" aria-labelledby="albumModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="albumModalLabel">Songs</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="songs-container" class="list-group">
+                                    <!-- Songs will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </main>
@@ -85,7 +94,7 @@
     </nav>
 
     <!-- SCRIPTS -->
-    <script type="module" src="js/playSong/playSong.js"></script>
+     <script type="module" src="js/album/getAlbum.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 

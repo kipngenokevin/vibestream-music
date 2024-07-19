@@ -19,4 +19,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('signup/', views.signup, name='signup'),
     path('', include(router.urls)), #Include the API URLS
-]
+    path('albums/<int:album_id>/songs/', views.album_songs, name='album_songs'),
+] 

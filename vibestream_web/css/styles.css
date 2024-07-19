@@ -421,8 +421,18 @@
     object-fit: cover;
   }
 
+  .album-song-img {
+    max-height: 150px;
+    object-fit: cover;
+  }
+
   .music-controls span {
     cursor: pointer;
+  }
+
+  .modal-dialog {
+    position: relative;
+    top: 30vh;
   }
 
 
@@ -448,5 +458,8 @@
 
     .play-song-img {
       max-height: 300px;
+    }
+    .album-song-img {
+      max-height: 200px;
     }
   }

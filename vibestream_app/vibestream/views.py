@@ -4,7 +4,9 @@ from django.contrib.auth import login
 from rest_framework import viewsets
 from .models import Artist, Album, Song, Podcast, Playlist, MyPodcast
 from .serializers import ArtistSerializer, AlbumSerializer, SongSerializer, PodcastSerializer, PlaylistSerializer, MyPodcastSerializer
-
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
+from django.conf import settings
 # Create your views here.
 
 def signup(request):
@@ -18,6 +20,29 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
 
+def album_songs(request, album_id):
+    # Fetch the album
+    album = get_object_or_404(Album, id=album_id)
+    
+    # Fetch songs for the album
+    songs = Song.objects.filter(album=album).select_related('artist').values(
+        'id', 'title', 'duration', 'media', 'image', 'artist__name'
+    )
+    
+    # Construct the response data
+    song_list = [
+        {
+            'id': song['id'],
+            'title': song['title'],
+            'duration': song['duration'],
+            'media': request.build_absolute_uri(f"{settings.MEDIA_URL}{song['media']}"),
+            'image': request.build_absolute_uri(f"{settings.MEDIA_URL}{song['image']}"),
+            'artist_name': song['artist__name']  # Include artist name
+        }
+        for song in songs
+    ]
+
+    return JsonResponse(song_list, safe=False)
 
 # API Views
 class ArtistViewSet(viewsets.ModelViewSet):
