@@ -22,6 +22,14 @@ function fetchSongDetails(songId) {
         success: function (song) {
             populateSongDetails(song);
             fetchArtistName(song.artist);
+            // Stop and reset the audio if a new song is being loaded
+            if (audio) {
+                audio.pause();
+                audio.src = ''; // Clear the current source
+                isPlaying = false; // Update the state
+                $('#play-button').text('play_arrow');
+            }
+            playSong(song.media); // Play the new song
         },
         error: function (xhr, status, error) {
             console.error('Error fetching song details:', error);
@@ -60,13 +68,13 @@ function populateSongDetails(song) {
     $('#song-image').attr('src', song.image);
     $('#song-title').text(song.title);
 
-    $('#play-button').on('click', function () {
+    $('#play-button').off('click').on('click', function () {
         if (audio) {
             if (isPlaying) {
                 audio.pause();
                 $('#play-button').text('play_arrow');
             } else {
-                audio.play();
+                audio.play().catch(error => console.error('Error playing audio:', error));
                 $('#play-button').text('pause');
             }
             isPlaying = !isPlaying;
@@ -75,28 +83,29 @@ function populateSongDetails(song) {
         }
     });
 
-    $('#skip-next').on('click', function () {
+    $('#skip-next').off('click').on('click', function () {
         playNextSong();
     });
 
-    $('#skip-previous').on('click', function () {
+    $('#skip-previous').off('click').on('click', function () {
         playPreviousSong();
     });
 }
 
 function playSong(mediaUrl) {
-    if (audio) {
-        audio.pause();
-    }
     audio = new Audio(mediaUrl);
     audio.addEventListener('timeupdate', updateProgressBar);
     audio.addEventListener('ended', function () {
         $('#play-button').text('play_arrow');
         isPlaying = false;
+        playNextSong(); // Automatically play the next song when the current one ends
     });
-    audio.play();
-    $('#play-button').text('pause');
-    isPlaying = true;
+    audio.play().then(() => {
+        $('#play-button').text('pause');
+        isPlaying = true;
+    }).catch(error => {
+        console.error('Error playing audio:', error);
+    });
 }
 
 function updateProgressBar() {
@@ -123,3 +132,5 @@ function playPreviousSong() {
     songId = songList[prevIndex].id;
     fetchSongDetails(songId);
 }
+
+
