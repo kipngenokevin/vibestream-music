@@ -1,3 +1,4 @@
+/*
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -151,9 +152,10 @@ const HomePage = () => {
 };
 
 export default HomePage;
+*/
 
 
-/*
+
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -176,22 +178,22 @@ const HomePage = () => {
 
   useEffect(() => {
     // Fetch data for songs
-    axios.get('https://api.example.com/songs')
+    axios.get("http://153.92.208.133:5000/vibestream/songs/")
       .then(response => setSongs(response.data))
       .catch(error => console.error('Error fetching songs:', error));
 
     // Fetch data for albums
-    axios.get('https://api.example.com/albums')
+    axios.get("http://153.92.208.133:5000/vibestream/albums/")
       .then(response => setAlbums(response.data))
       .catch(error => console.error('Error fetching albums:', error));
 
     // Fetch data for podcasts
-    axios.get('https://api.example.com/podcasts')
+    axios.get("http://153.92.208.133:5000/vibestream/podcasts/")
       .then(response => setPodcasts(response.data))
       .catch(error => console.error('Error fetching podcasts:', error));
 
     // Fetch data for artists
-    axios.get('https://api.example.com/artists')
+    axios.get("http://153.92.208.133:5000/vibestream/artists/")
       .then(response => setArtists(response.data))
       .catch(error => console.error('Error fetching artists:', error));
   }, []);
@@ -215,7 +217,7 @@ const HomePage = () => {
         <div className="section-content">
           {songs.slice(songIndex, songIndex + 5).map(song => (
             <div className="section-item" key={song.id} onClick={() => handleItemClick('songs', song.id)}>
-              <img src={song.coverImage} alt={song.title} />
+              <img src={song.image} alt={song.title} />
               <p>{song.title}</p>
             </div>
           ))}
@@ -245,8 +247,8 @@ const HomePage = () => {
         <div className="section-content">
           {albums.slice(albumIndex, albumIndex + 5).map(album => (
             <div className="section-item" key={album.id} onClick={() => handleItemClick('albums', album.id)}>
-              <img src={album.coverImage} alt={album.title} />
-              <p>{album.title}</p>
+              <img src={album.image} alt={album.title} />
+              <p>{album.release_date}</p>
             </div>
           ))}
           {albums.length > 5 && (
@@ -305,7 +307,7 @@ const HomePage = () => {
         <div className="section-content">
           {artists.slice(artistIndex, artistIndex + 5).map(artist => (
             <div className="section-item" key={artist.id} onClick={() => handleItemClick('artists', artist.id)}>
-              <img src={artist.coverImage} alt={artist.name} />
+              <img src={artist.image} alt={artist.name} />
               <p>{artist.name}</p>
             </div>
           ))}
@@ -334,4 +336,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-*/

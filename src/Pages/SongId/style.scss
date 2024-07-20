@@ -1,0 +1,51 @@
+.song-detail-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .main-content {
+    display: flex;
+    flex: 1;
+    margin-left: 300px;
+    margin-top: 130px;
+  }
+
+  .song-details {
+    display: flex;
+    flex-direction: column; /* Change to column direction to stack items vertically */
+    flex: 1;
+    padding: 20px;
+
+    .song-hero {
+      width: 100%; /* Ensure the image covers the full width */
+      height: 55vh;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      margin-bottom: 20px; /* Add space below the cover image */
+    }
+
+    .song-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* Align content to the left */
+      text-align: left; /* Align text to the left */
+
+      h2 {
+        margin-bottom: 10px;
+        font-size: 24px;
+        color: #333;
+      }
+
+      p {
+        margin: 5px 0;
+        color: #666;
+      }
+
+      audio {
+        width: 100%; /* Make sure audio controls take full width */
+        margin-top: 20px;
+      }
+    }
+  }
+}
