@@ -31,7 +31,7 @@ function populateAlbums(albums) {
 
 function fetchSongsByAlbum(albumId) {
     $.ajax({
-        url: `http://localhost:8080/vibestream/albums/${albumId}/songs/`,
+        url: `https://music.gigastreammedia.net/api/vibestream/albums/${albumId}/songs/`,
         method: 'GET',
         success: function(songs) {
             // Uncomment the next line to log raw data for debugging

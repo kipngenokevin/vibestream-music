@@ -1,9 +1,9 @@
 // GLOBAL ENDPOINT URLS
-const songsEndpointURL = "http://localhost:8080/vibestream/songs/";
-export const albumsEndpointURL = "http://localhost:8080/vibestream/albums/";
-export const playlistsEndpointURL = "http://localhost:8080/vibestream/playlists/";
-const artistsEndpointURL = "http://localhost:8080/vibestream/artists/";
-const podcastsEndpointURL = "http://localhost:8080/vibestream/podcasts/";
+const songsEndpointURL = "https://music.gigastreammedia.net/api/vibestream/songs/";
+export const albumsEndpointURL = "https://music.gigastreammedia.net/api/vibestream/albums/";
+export const playlistsEndpointURL = "https://music.gigastreammedia.net/api/vibestream/playlists/";
+const artistsEndpointURL = "https://music.gigastreammedia.net/api/vibestream/artists/";
+const podcastsEndpointURL = "https://music.gigastreammedia.net/api/vibestream/podcasts/";
 
 // IMPORT JS
 import fetchSongs from "./getSong.js";

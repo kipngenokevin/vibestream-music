@@ -5,9 +5,13 @@ const fetchSongs = (endpointURL, callback) => {
         success: function(data) {
             callback(data);
         },
-        error: function(xhr, status, error) {
-            console.error("There has been a problem fetching your songs: ", status, error);
-        }
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error("There has been a problem fetching your songs: ", textStatus, errorThrown);
+        console.error("Status Code:", jqXHR.status);
+            console.error("Status Text:", textStatus);
+            console.error("Error Thrown:", errorThrown);
+            console.error("Response Text:", jqXHR.responseText);
+	}
     });
 }
 

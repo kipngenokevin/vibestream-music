@@ -17,7 +17,7 @@ $(document).ready(function () {
 
 function fetchSongDetails(songId) {
     $.ajax({
-        url: `http://localhost:8080/vibestream/songs/${songId}/`,
+        url: `https://music.gigastreammedia.net/api/vibestream/songs/${songId}/`,
         method: 'GET',
         success: function (song) {
             populateSongDetails(song);
@@ -39,7 +39,7 @@ function fetchSongDetails(songId) {
 
 function fetchSongList() {
     $.ajax({
-        url: 'http://localhost:8080/vibestream/songs/',
+	url: 'https://music.gigastreammedia.net/api/vibestream/songs/',
         method: 'GET',
         success: function (songs) {
             songList = songs;
@@ -53,7 +53,7 @@ function fetchSongList() {
 
 function fetchArtistName(artistId) {
     $.ajax({
-        url: `http://localhost:8080/vibestream/artists/${artistId}/`,
+        url: `https://music.gigastreammedia.net/api/vibestream/artists/${artistId}/`,
         method: 'GET',
         success: function (artist) {
             $('#artist-name').text(artist.name);
