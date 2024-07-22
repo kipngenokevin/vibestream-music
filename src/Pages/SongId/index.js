@@ -78,16 +78,6 @@ const SongDetail = () => {
             <p>Artist: {artist.name || artist}</p>
             <p>Duration: {song.duration}</p>
           </div>
-          <div className="songs-by-artist">
-            <h3>Songs by {artist.name || artist}</h3>
-            <ul>
-              {songsByArtist.map((s) => (
-                <li key={s.id}>
-                  <a href={`/songs/${s.id}`}>{s.title}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </div>
     </div>

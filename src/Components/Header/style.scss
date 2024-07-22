@@ -7,7 +7,9 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000; 
+    height: 60px;
+    z-index: 1000;
+
 
     .navbar-left {
         max-width: 100%;
@@ -20,8 +22,8 @@
 
     .profile {
         img {
-            height: 40px;
-            width: 40px;
+            height: 80px;
+            width: 80px;
         }
     }
 }

@@ -11,7 +11,8 @@ const MediaItem = ({ item, type, onClick}) => {
       <div className="media-info">
         <h2 className="media-title">{item.title || item.name}</h2>
         <p className="media-description">{item.artist}</p>
-        <p className="media-description">{item.artist}</p>
+        <p className="media-description">{item.bio}</p>
+        <p className="media-description">{item.description}</p>
         
       </div>
     </div>
