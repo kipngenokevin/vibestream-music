@@ -20,7 +20,7 @@ function App() {
       <Route path="/artists" element={<Artists />} />
       <Route path="/podcasts" element={<Podcasts />} />
       <Route path="/playlist" element={<Playlist />} />
-      <Route path="/podcasts/:itemId" element={<PodcastId />} />
+      <Route path="/podcasts/:id" element={<PodcastId />} />
       <Route path="/artists/:id" element={<ArtistId />} />
       <Route path="/songs/:id" element={<SongDetail />} />
       < Route path="/albums/:id" element={< AlbumId />} />

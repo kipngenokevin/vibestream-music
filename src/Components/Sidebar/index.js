@@ -1,8 +1,7 @@
-//
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMusic, faCompactDisc, faUser, faPodcast } from '@fortawesome/free-solid-svg-icons';
+import { faMusic, faCompactDisc, faUser, faPodcast, faHome } from '@fortawesome/free-solid-svg-icons';
 import './style.scss';
 import { faHeart } from '@fortawesome/free-solid-svg-icons/faHeart';
 
@@ -10,6 +9,11 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <ul>
+        <li>
+          <Link to="/">
+            <FontAwesomeIcon icon={faHome} /> Home
+          </Link>
+        </li>
         <li>
           <Link to="/albums">
             <FontAwesomeIcon icon={faCompactDisc} /> Albums
@@ -49,4 +53,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-

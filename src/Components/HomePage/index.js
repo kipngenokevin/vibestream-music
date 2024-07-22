@@ -277,7 +277,7 @@ const HomePage = () => {
         <div className="section-content">
           {podcasts.slice(podcastIndex, podcastIndex + 5).map(podcast => (
             <div className="section-item" key={podcast.id} onClick={() => handleItemClick('podcasts', podcast.id)}>
-              <img src={podcast.coverImage} alt={podcast.title} />
+              <img src={podcast.image} alt={podcast.title} />
               <p>{podcast.title}</p>
             </div>
           ))}

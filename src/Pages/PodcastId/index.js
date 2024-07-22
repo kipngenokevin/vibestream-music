@@ -1,75 +1,66 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import './style.scss';
-import { mockPodcasts } from '../../mockData';
 import Header from '../../Components/Header';
 import Sidebar from '../../Components/Sidebar';
 
-const PodcastId = () => {
-  const { itemId } = useParams();
+const PodcastDetail = () => {
+  const { id } = useParams();
+  const [podcast, setPodcast] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [audio] = useState(new Audio());
-
-  const podcast = mockPodcasts.find(p => p.id === parseInt(itemId, 10));
+  const [currentTime, setCurrentTime] = useState(0);
+  const audioRef = useRef(null);
 
   useEffect(() => {
-    if (podcast) {
-      audio.src = podcast.audioUrl;
-    }
-  }, [podcast, audio]);
+    const fetchPodcast = async () => {
+      try {
+        const response = await axios.get(`/vibestream/podcasts/${id}`);
+        setPodcast(response.data);
+      } catch (error) {
+        console.error('Error fetching podcast:', error);
+      }
+    };
+
+    fetchPodcast();
+  }, [id]);
 
   const togglePlayPause = () => {
     if (isPlaying) {
-      audio.pause();
+      audioRef.current.pause();
     } else {
-      audio.play();
+      audioRef.current.play();
     }
     setIsPlaying(!isPlaying);
   };
 
-  const handleProgressChange = (event) => {
-    const newProgress = event.target.value;
-    audio.currentTime = (audio.duration / 100) * newProgress;
-    setProgress(newProgress);
+  const handleTimeUpdate = () => {
+    setCurrentTime(audioRef.current.currentTime);
   };
 
-  useEffect(() => {
-    const updateProgress = () => {
-      setProgress((audio.currentTime / audio.duration) * 100);
-    };
-
-    audio.addEventListener('timeupdate', updateProgress);
-    return () => {
-      audio.removeEventListener('timeupdate', updateProgress);
-    };
-  }, [audio]);
-
   if (!podcast) {
-    return <div>Podcast not found</div>;
+    return <div>Loading...</div>;
   }
 
   return (
-    <div className="podcast-id-page">
+    <div className="podcast-detail-page">
       <Header />
       <div className="main-content">
         <Sidebar />
         <div className="podcast-details">
-          <div className="podcast-hero" style={{ backgroundImage: `url(${podcast.coverImage})`, height: '65vh', width: '100%', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+          <div className="podcast-hero" style={{ backgroundImage: `url(${podcast.image})`, height: '55vh', backgroundSize: 'cover', backgroundPosition: 'center' }}>
           </div>
           <div className="podcast-info">
-            <h2>{podcast.title}</h2>
-            <p>{podcast.description}</p>
-            <input 
-              type="range" 
-              min="0" 
-              max="100" 
-              value={progress} 
-              onChange={handleProgressChange} 
+            <audio
+              ref={audioRef}
+              src={podcast.audioUrl}
+              onTimeUpdate={handleTimeUpdate}
+              controls
             />
-            <button onClick={togglePlayPause}>
-              {isPlaying ? 'Pause' : 'Play'}
-            </button>
+            <h2>{podcast.title}</h2>
+            <p>Host: {podcast.host}</p>
+            <p>Description: {podcast.description}</p>
+            <p>Date: {podcast.date}</p>
           </div>
         </div>
       </div>
@@ -77,4 +68,4 @@ const PodcastId = () => {
   );
 };
 
-export default PodcastId;
+export default PodcastDetail;
