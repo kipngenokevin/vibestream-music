@@ -2,6 +2,7 @@ from django.urls import path, include
 from . import views
 from django.contrib.auth import views as auth_views
 from rest_framework.routers import DefaultRouter
+from .views import ArtistAlbumsView, ArtistSongsView
 
 # Create a router and register out viewsets with it
 router = DefaultRouter()
@@ -20,4 +21,6 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('', include(router.urls)), #Include the API URLS
     path('albums/<int:album_id>/songs/', views.album_songs, name='album_songs'),
+    path('artists/<int:artist_id>/albums/', ArtistAlbumsView.as_view(), name='artist-albums'),
+    path('artists/<int:artist_id>/songs/', ArtistSongsView.as_view(), name='artist-songs'),
 ] 

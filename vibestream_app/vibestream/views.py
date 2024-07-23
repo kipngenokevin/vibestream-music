@@ -68,3 +68,17 @@ class PlaylistViewSet(viewsets.ModelViewSet):
 class MyPodcastViewSet(viewsets.ModelViewSet):
     queryset = MyPodcast.objects.all()
     serializer_class = MyPodcastSerializer
+
+class ArtistAlbumsView(generics.ListAPIView):
+    serializer_class = AlbumSerializer
+
+    def get_queryset(self):
+        artist_id = self.kwargs['artist_id']
+        return Album.objects.filter(artist_id=artist_id)
+    
+class ArtistSongsView(generics.ListAPIView):
+    serializer_class = SongSerializer
+
+    def get_queryset(self):
+        artist_id = self.kwargs['artist_id']
+        return Song.objects.filter(artist_id=artist_id)
