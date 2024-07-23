@@ -17,12 +17,13 @@ function populateAlbums(albums) {
 
     albums.forEach(album => {
         const albumCard = `
-            <div class="col-sm-4 card music-card ">
-                <img src="${album.image}" class="card-img-top album-song-img" alt="${album.name}">
-                <div class="card-body text-center">
-                    <h5 class="card-title">${album.title}</h5>
-                    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#albumModal" data-id="${album.id}">View Songs</button>
-                </div>
+            <div class="col-sm-2 col-4 card artist-card">
+                <a href="#" class="stretched-link" data-bs-toggle="modal" data-bs-target="#albumModal" data-id="${album.id}">
+                    <img src="${album.image}" class="card-img-top rounded album-img" alt="${album.title}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">${album.title}</h5>
+                    </div>
+                </a>
             </div>
         `;
         container.append(albumCard);

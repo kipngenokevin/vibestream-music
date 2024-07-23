@@ -354,9 +354,42 @@
     overflow-x: hidden;
   }
 
+  h5 {
+    font-size: 1rem;
+  }
+
   h6 {
     font-weight: 800;
   }
+
+  main {
+    margin-bottom: 100px;
+  }
+
+  .artist-card {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    flex-grow: 1;
+  }
+
+  .artist-card-img {
+    max-height: 10rem;
+    min-height: 9rem;
+    object-fit: cover;
+    min-width: 120px;
+    align-items: center;
+    border-radius: 50%;
+  }
+
+  .artist-card a.stretched-link {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+}
 
   
   .material-symbols-outlined {
@@ -401,11 +434,12 @@
   }
 
   .song-img {
-    max-height: 120px;
-    width: 120%;
-    position: relative;
+    height: 120px;
+    max-width: 100%;
     object-fit: cover;
-    left: -0.9rem;
+    border-radius: 0.2rem !important;
+    position: relative;
+    top: 0.6rem;
   }
 
   .progress-bar {
@@ -424,6 +458,7 @@
   .album-song-img {
     max-height: 150px;
     object-fit: cover;
+    border-radius: 0 !important;
   }
 
   .music-controls span {
@@ -433,6 +468,11 @@
   .modal-dialog {
     position: relative;
     top: 30vh;
+  }
+
+  .album-img {
+    max-height: 10rem;
+    object-fit: cover;
   }
 
 
@@ -449,11 +489,10 @@
         max-width: 18rem;
     }
     .song-img {
-      max-height: 200px;
+      max-height: 300px;
       width: 110%;
       position: relative;
       object-fit: cover;
-      left: -0.9rem;
     }
 
     .play-song-img {
@@ -461,5 +500,9 @@
     }
     .album-song-img {
       max-height: 200px;
+    }
+
+    .artist-card-img {
+      min-height: 18rem;
     }
   }
