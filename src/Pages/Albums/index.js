@@ -12,8 +12,23 @@ const Albums = () => {
   useEffect(() => {
     const fetchAlbums = async () => {
       try {
-        const response = await axios.get('http://153.92.208.133:5000/vibestream/albums/'); // Replace with the correct endpoint
-        setAlbums(response.data);
+        const response = await axios.get('/vibestream/albums/');
+        const albumsData = response.data;
+
+        const fetchArtistNames = async (albums) => {
+          const artistPromises = albums.map(async (album) => {
+            if (typeof album.artist === 'number') {
+              const artistResponse = await axios.get(`/vibestream/artists/${album.artist}`);
+              return { ...album, artist: artistResponse.data.name };
+            }
+            return album;
+          });
+
+          const albumsWithArtistNames = await Promise.all(artistPromises);
+          setAlbums(albumsWithArtistNames);
+        };
+
+        fetchArtistNames(albumsData);
       } catch (error) {
         console.error('Error fetching albums:', error);
       }

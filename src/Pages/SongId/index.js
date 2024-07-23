@@ -9,8 +9,9 @@ const SongDetail = () => {
   const { id } = useParams();
   const [song, setSong] = useState(null);
   const [artist, setArtist] = useState(null);
+  // eslint-disable-next-line
   const [songsByArtist, setSongsByArtist] = useState([]);
-  const [isPlaying, setIsPlaying] = useState(false);
+  // eslint-disable-next-line
   const [currentTime, setCurrentTime] = useState(0);
   const audioRef = useRef(null);
 
@@ -41,15 +42,6 @@ const SongDetail = () => {
 
     fetchSong();
   }, [id]);
-
-  const togglePlayPause = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
 
   const handleTimeUpdate = () => {
     setCurrentTime(audioRef.current.currentTime);

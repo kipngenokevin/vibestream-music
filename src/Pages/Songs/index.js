@@ -13,8 +13,23 @@ const Songs = () => {
   useEffect(() => {
     const fetchSongs = async () => {
       try {
-        const response = await axios.get('http://153.92.208.133:5000/vibestream/songs/'); // Replace with the correct endpoint
-        setSongs(response.data);
+        const response = await axios.get('/vibestream/songs/');
+        const songsData = response.data;
+
+        const fetchArtistNames = async (songs) => {
+          const artistPromises = songs.map(async (song) => {
+            if (typeof song.artist === 'number') {
+              const artistResponse = await axios.get(`/vibestream/artists/${song.artist}`);
+              return { ...song, artist: artistResponse.data.name };
+            }
+            return song;
+          });
+
+          const songsWithArtistNames = await Promise.all(artistPromises);
+          setSongs(songsWithArtistNames);
+        };
+
+        fetchArtistNames(songsData);
       } catch (error) {
         console.error('Error fetching songs:', error);
       }
@@ -24,7 +39,7 @@ const Songs = () => {
   }, []);
 
   const handleSongClick = (id) => {
-    navigate(`/songs/${id}`); // Ensure the path is 'songs'
+    navigate(`/songs/${id}`);
   };
 
   return (
