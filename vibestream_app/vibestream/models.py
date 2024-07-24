@@ -24,7 +24,7 @@ class Song(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE, null=True, blank=True)
     duration = models.DurationField()
     image = models.ImageField(upload_to='songs/', null=True, blank=True)
-    media = models.FileField(upload_to='songs/media/', null=True, blank=True)
+    media = models.FileField(upload_to='podcasts/media/', null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -35,6 +35,7 @@ class Podcast(models.Model):
     host = models.CharField(max_length=100)
     date = models.DateField()
     image = models.ImageField(upload_to='podcasts/', null=True, blank=True)
+    media = models.FileField(upload_to='podcasts/media/', null=True, blank=True)
 
     def __str__(self):
         return self.title
